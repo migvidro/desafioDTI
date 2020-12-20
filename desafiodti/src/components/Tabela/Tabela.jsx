@@ -4,25 +4,8 @@ import { Link } from "react-router-dom";
 import "./estilos.css";
 class Tabela extends Component {
 
-    constructor(){
-        super()
-        this.produtos = [
-            {
-                nome: "Água",
-                quantidade: 5,
-                valor: 2
-            },
-            {
-                nome: "Refrigerante",
-                quantidade: 3,
-                valor: 3.50
-            },
-            {
-                nome: "Suco",
-                quantidade: 10,
-                valor: 5
-            }
-        ]
+    _editaProduto(){
+        this.props.editaProduto(this.produto, this.quantidade, this.valor);
     }
 
     render() {
@@ -44,7 +27,7 @@ class Tabela extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.produtos.map((produto) => {
+                    {this.props.produtos.map((produto) => {
                             return (
                                 <tr>
                                     <td>{produto.nome}</td>
@@ -52,6 +35,10 @@ class Tabela extends Component {
                                     <td>{produto.valor}</td>
                                     <button className="btn btn-danger"
                                     onClick={console.log('exclui')}>Excluir</button>
+                                    <Link to="/cadastro">
+                                        <button className="btn btn-primary"
+                                        onClick={this._editaProduto.bind(this)}>Editar</button>
+                                    </Link>
                                 </tr>
                                 
                             );

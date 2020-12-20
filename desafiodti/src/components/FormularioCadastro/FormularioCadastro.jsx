@@ -28,7 +28,7 @@ class FormularioCadastro extends Component {
   _criarNota(event){
     event.preventDefault();
     event.stopPropagation();
-    this.props.criarNota(this.titulo, this.texto);
+    this.props.criarProduto(this.produto, this.quantidade, this.valor);
   }
 
   render() {
@@ -57,14 +57,15 @@ class FormularioCadastro extends Component {
           className="form-control"
           onChange={this._handleMudancaValor.bind(this)}
         />
-        <button className="botao-adicionar">
+        <button className="botao-adicionar"
+        onClick={console.log("oi")}>
           Adicionar Produto
         </button>
         <Link to="/">
-        <button className="botao-voltar">
-          Voltar
-        </button>
-          </Link>
+          <button className="botao-voltar">
+            Voltar
+          </button>
+        </Link>
         
       </form>
     );

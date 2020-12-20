@@ -11,6 +11,40 @@ import "./assets/App.css";
 import './assets/index.css';
 
 export default function App() {
+
+  let state = {
+    produtos: [
+      {
+          nome: "Água",
+          quantidade: 5,
+          valor: 2
+      },
+      {
+          nome: "Refrigerante",
+          quantidade: 3,
+          valor: 3.50
+      },
+      {
+          nome: "Suco",
+          quantidade: 10,
+          valor: 5
+      }
+    ]
+  }
+
+  let criarProduto = (nome, quantidade, valor) => {
+    const novoProduto = {nome, quantidade, valor};
+    const novoArrayProdutos = [...state.produtos, novoProduto];
+    const novoEstado = {
+      notas: novoArrayProdutos
+    }
+    this.setState(novoEstado);
+  }
+
+  let editaProduto = function(nome, quantidade, valor){
+    
+  }
+
   return (
     <Router>
       <link
@@ -21,10 +55,10 @@ export default function App() {
       />
         <Switch>
           <Route path="/cadastro">
-            <FormularioCadastro />
+            <FormularioCadastro criarProduto={criarProduto.bind(this)}  editaProduto={editaProduto.bind(this)}/>
           </Route>
           <Route path="/">
-            <Tabela />
+            <Tabela produtos={state.produtos}/>
           </Route>
         </Switch>
     </Router>

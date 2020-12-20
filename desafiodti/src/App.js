@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // ,Link
+} from "react-router-dom";
+import FormularioCadastro from "./components/FormularioCadastro";
+import Tabela from "./components/Tabela/Tabela";
+import "./assets/App.css";
+import './assets/index.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+      />
+        <Switch>
+          <Route path="/cadastro">
+            <FormularioCadastro />
+          </Route>
+          <Route path="/">
+            <Tabela />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
-
-export default App;

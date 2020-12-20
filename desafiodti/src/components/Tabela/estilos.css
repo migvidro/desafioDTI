@@ -1,0 +1,27 @@
+.tabela {
+    width: 100%;
+}
+
+.botao-adicionar{
+    background-color: #212121;
+    color: #FFF;
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 12px;
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    width: 200px;
+}
+
+.botao-voltar{
+    background-color: #212121;
+    color: #FFF;
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 12px;
+    margin: 0 auto;
+    justify-content: center;
+    display: inline;
+    width: 200px;
+}
